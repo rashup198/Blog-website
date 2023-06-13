@@ -12,17 +12,17 @@ const Blogs = () => {
   console.log("printing inside blog componets");
   console.log(posts);
   return (
-    <div>
+    <div className=' w-11/12 max-w-[560px] py-3 flex flex-col gap-y-7 mb-[70px]'>
       {
         loading? (<Spinner></Spinner>) : (posts.length===0 ? (<div><p>No Blog Found</p></div>) :(posts.map((post)=>(
           <div key={post.id}>
-            <p className='font-bold'>{post.title}</p>
-            <p>
-              By <span>{post.author}</span>on <span>post.category</span>
+            <p className='font-bold text-xs'>{post.title}</p>
+            <p className='text-[10px]'>
+              By <span className='italic'>{post.author}</span>on <span className='underline font-bold'>{post.category}</span>
             </p>
-            <p>Posted on {post.date}</p>
-            <p>post.content</p>
-            <div>
+            <p className='text-[10px]'>Posted on {post.date}</p>
+            <p className='text-[12px] mt-[10px]'>{post.content}</p>
+            <div className='text-blue-500 flex gap-x-5 mt-1 underline font-bold text-[10px]'>
               {post.tags.map((tag,index)=>{
                 return <span key={index}>{`#${tag}`}</span>
               })}
