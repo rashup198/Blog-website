@@ -15,6 +15,7 @@ export function AppContextProvider({childern}){
     async function fetchBlogPosts(){
         setLoading(true);
         let url= `${baseUrl}?page=${page}`;
+        console.log(url);
        try {
         const result= await fetch(url);
         const data= await result.json();
@@ -51,6 +52,8 @@ export function AppContextProvider({childern}){
         fetchBlogPosts,
         handlePageChange
     };
+
+    
 
     //step2
     return <AppContext.Provider value={value}>
