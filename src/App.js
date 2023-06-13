@@ -12,8 +12,8 @@ useEffect(()=>{
   fetchBlogPosts();
 },[])
 
-  return <div>
-        hello
+  return <div className="w-full h-full flex flex-col justify-center items-center gap-y-1">
+        
         <Header></Header>
         <Blogs></Blogs>
         <Pagination></Pagination>
