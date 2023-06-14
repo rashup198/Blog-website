@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Spinner from './Spinner';
+import BlogDetails from './BlogDetails';
 
 
 
@@ -14,20 +15,8 @@ const Blogs = () => {
   return (
     <div className=' w-11/12 max-w-[560px] py-3 flex flex-col gap-y-7 mb-[70px]'>
       {
-        loading? (<Spinner></Spinner>) : (posts.length===0 ? (<div><p>No Blog Found</p></div>) :(posts.map((post)=>(
-          <div key={post.id}>
-            <p className='font-bold text-xs'>{post.title}</p>
-            <p className='text-[10px]'>
-              By <span className='italic'>{post.author}</span>on <span className='underline font-bold'>{post.category}</span>
-            </p>
-            <p className='text-[10px]'>Posted on {post.date}</p>
-            <p className='text-[12px] mt-[10px]'>{post.content}</p>
-            <div className='text-blue-500 flex gap-x-5 mt-1 underline font-bold text-[10px]'>
-              {post.tags.map((tag,index)=>{
-                return <span key={index}>{`#${tag}`}</span>
-              })}
-            </div>
-          </div>
+        loading? (<Spinner></Spinner>) : (posts.length===0 ? (<div className='text-center h-screen w-full flex justify-center items-center text-3xl font-bold'><p>No Blog Found</p></div>) :(posts.map((post)=>(
+          <BlogDetails key={post.id} post={post}></BlogDetails>
         ))) )
       }
     </div>
