@@ -7,9 +7,8 @@ import Header from '../Componets/Header';
 
 const CategoryPage = () => {
   const navigation =useNavigation();
-  const location = useLocation();
-  const category = location.pathname.split("/").at(-1);
-  return (
+  const location = useLocation();\
+    return (
     <div>
     <Header></Header>
 
